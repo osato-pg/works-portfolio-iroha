@@ -72,6 +72,8 @@
 .header-menu li a {
   cursor: pointer;
   display: block;
+  text-decoration: none;
+  color: white;
 }
 
 @media (max-width: 945px) {
