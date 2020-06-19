@@ -1,0 +1,840 @@
+@import "mixin";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Vollkorn', serif;
+}
+
+.header-menu {
+  width: 100%;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.702);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 3px 4px 2px;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+
+  &__title {
+    font-size: 0.8em;
+    margin-left: 20px;
+    z-index: 2;
+
+    @include sp {
+      margin-left: 40px;
+    }
+
+    &:after {
+      content: "-Yakushima Lodge& Food Atelier-";
+      display: block;
+      font-size: 0.5em;
+    }
+  }
+
+  span {
+    font-size: 2em;
+  }
+
+  nav {
+    margin: 0 30px 0 auto;
+
+    @include tab {
+      display: none;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+
+  li {
+    margin-left: 60px;
+    font-size: 1em;
+
+    a {
+      cursor: pointer;
+      display: block;
+    }
+  }
+}
+
+.background_toggle {
+  @include tab {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+
+.h-about {
+  &:after {
+    content: "-いろはのこと-";
+    display: block;
+    color: white;
+    font-size: 0.5em;
+    text-align: center;
+  }
+}
+
+.h-lodge {
+  &:after {
+    content: "-宿泊ロッジ-";
+    display: block;
+    color: white;
+    font-size: 0.5em;
+  }
+}
+
+.h-food {
+  &:after {
+    content: "-食工房/ラウンジ-";
+    display: block;
+    color: white;
+    font-size: 0.5em;
+    text-align: center;
+  }
+}
+
+.h-interactive {
+  &:after {
+    content: "-体験プログラム-";
+    display: block;
+    color: white;
+    font-size: 0.5em;
+    text-align: center;
+  }
+}
+
+.h-booking {
+  &:after {
+    content: "-ご予約-";
+    display: block;
+    color: white;
+    font-size: 0.5em;
+    text-align: center;
+  }
+}
+
+.open {
+  display: none;
+
+  @include tab {
+    display: block;
+    margin: 0 20px 0 auto;
+    cursor: pointer;
+  }
+}
+
+.unvisible {
+  @include tab {
+    display: none;
+  }
+}
+
+.sp-nav {
+  display: none;
+
+  @include tab {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    background: rgba(0, 0, 0, .8);
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.2s;
+  }
+
+  @include sp {
+    transform: translateX(100%);
+    position: fixed;
+    top: 0;
+    left: 40px;
+  }
+
+  p {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  li {
+    margin: 0;
+  }
+}
+
+.sp-content {
+  @include tab {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+  }
+}
+
+.sp-list {
+  list-style: none;
+}
+
+.close {
+  font-size: 25px;
+
+  @include tab {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 5%;
+    padding: 20px;
+  }
+
+  @include sp {
+    position: absolute;
+    right: 40px;
+  }
+}
+
+.sns {
+  display: flex;
+  list-style: none;
+
+  @media (min-width:$sp) and (max-width: $tab) {
+    position: absolute;
+    right: 10%;
+    top: 635px;
+  }
+
+  li {
+    font-size: 50px;
+
+    @media (min-width:$sp) and (max-width: $tab) {
+      margin-left: 55px;
+    }
+
+    @include sp {
+      padding: 20px;
+    }
+  }
+}
+
+.toggle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.header-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  transition: 1s ease-in-out;
+
+  img {
+    width: 70%;
+    height: auto;
+    max-width: 886px;
+  }
+}
+
+// main
+main {
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @include tab {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.main-intro {
+  height: 700px;
+  padding: 50px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  
+  @include sp {
+    flex-direction: column;
+    padding: 0;
+    height: 900px;
+  }
+}
+
+.main-intro__content {
+  font-size: 1.2em;
+  line-height: 2.5em;
+  letter-spacing: 0.2em;
+  max-width: 500px;
+  padding-left: 5%;
+  position: relative;
+  z-index: 2;
+
+  @include tab {
+    font-size: 1em;
+  }
+
+  @include sp {
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+    width: auto;
+  }
+
+  h1 {
+    @include sp {
+      text-align: center;
+      margin-top: 100px;
+    }
+  }
+
+  p {
+
+    @include sp {
+      margin-top: 60px;
+    }
+  }
+
+  input {
+    background: transparent;
+    opacity: 0.9;
+    border: 1px solid #707070;
+    padding: 8px 30px;
+    display: block;
+    cursor: pointer;
+
+    @include sp {
+      margin: 10px 20px 0 auto;
+    }
+  }
+}
+
+.main-intro__pic {
+  z-index: 2;
+  width: 40%;
+
+  @include sp {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+
+    @include sp {
+      margin: 0;
+    }
+  }
+
+}
+
+.family-pic {
+  @include sp {
+    order: 2;
+    position: relative;
+    left: 132px;
+  }
+}
+
+.camp-pic {
+  @include sp {
+    order: 1;
+  }
+}
+
+.emptyBox {
+  width: 90%;
+  height: 400px;
+  background-color: #F8F8F8;
+  position: absolute;
+  top: 70px;
+  left: 22%;
+  z-index: -1;
+
+  @include sp {
+    width: 70%;
+    left: 112px;
+    height: 621px;
+  }
+}
+
+.main {
+  padding: 50px;
+  background-color: #F8F8F8;
+  height: 900px;
+
+  @include sp {
+    padding: 0;
+    height: $sp-height;
+  }
+
+  ul {
+    display: flex;
+    width: 90%;
+    margin: 30px 0 0 auto;
+
+    @include sp {
+      width: 100%;
+      margin: 30px 0 0 0;
+    }
+
+    li {
+      list-style: none;
+      margin: 0;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+.main-title {
+  font-size: 2.5em;
+  padding: 20px 20px 0 20px;
+  position: relative;
+  margin-bottom: 1em;
+
+  @include sp {
+    font-size: 1.5em;
+    text-align: center;
+    letter-spacing: 0.1em;
+    padding-top: 40px;
+    text-shadow: #0000004D 3px 3px 2px;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    display: inline-block;
+    width: 20%;
+    height: 2px;
+    left: 250px;
+    transform: translateX(-50%);
+    background-color: #000;
+    border-radius: 2px;
+
+    @include sp {
+      width: 50%;
+      left: 220px;
+    }
+  }
+}
+
+.main-title__sp {
+  display: none;
+
+  @include sp {
+    display: block;
+  }
+}
+
+.decorate__lodge {
+  &:before {
+    content: "Lodge";
+    color: rgba(212, 211, 211, 0.302);
+    transform: rotate(270deg);
+    position: absolute;
+    left: -105px;
+    top: 68px;
+    font-size: 2.5em;
+
+    @include sp {
+      top: 170px;
+      left: -50px;
+      font-size: 3.5em;
+      text-shadow: none;
+    }
+  }
+}
+
+.decorate__food {
+  &:before {
+    content: "Food Atelier& Lounge";
+    color: rgba(212, 211, 211, 0.302);
+    transform: rotate(270deg);
+    position: absolute;
+    left: -266px;
+    top: 274px;
+    font-size: 1.5em;
+
+    @include sp {
+      top: 307px;
+      left: -165px;
+      font-size: 1.7em;
+      text-shadow: none;
+    }
+  }
+}
+
+.decorate__interactive {
+  &:before {
+    content: "Interactive";
+    color: rgba(212, 211, 211, 0.302);
+    transform: rotate(270deg);
+    position: absolute;
+    left: -177px;
+    top: 164px;
+    font-size: 2em;
+
+    @include sp {
+      top: 307px;
+      left: -130px;
+      font-size: 3.4em;
+      text-shadow: none;
+    }
+  }
+}
+
+.main__top {
+  display: flex;
+  width: 100%;
+
+  @include sp {
+    flex-direction: column;
+  }
+}
+
+.main__pic {
+  margin-top: 50px;
+
+  img {
+    width: 90%;
+    margin: 0 0 0 auto;
+    display: block;
+
+    @include sp {
+      width: 100%;
+    }
+  }
+}
+
+.main__content {
+  background-color: #fff;
+  max-width: 500px;
+  padding: 5%;
+  opacity: 0.9;
+  position: relative;
+  left: 107px;
+  height: 141px;
+  top: 200px;
+  font-size: 0.8em;
+
+  @include tab {
+    top: 29px;
+    left: 50px;
+  }
+
+  @include sp {
+    height: 400px;
+    width: 50%;
+    position: static;
+    margin: 40px 0 0 auto;
+  }
+
+  input {
+    background-color: #fff;
+    opacity: 0.9;
+    border: 1px solid #707070;
+    padding: 3px;
+    display: block;
+    margin: 0 0 0 auto;
+    cursor: pointer;
+
+    @include sp {
+      margin: 60px 0 0 auto;
+    }
+  }
+}
+
+// main-food
+.food {
+  background-color: #fff;
+}
+
+.main-food__pic {
+  margin-top: 50px;
+  position: relative;
+  left: 54px;
+
+  @include sp {
+    position: static;
+    order: 2;
+  }
+
+  img {
+    width: 90%;
+    margin: 0 0 0 auto;
+    display: block;
+
+    @include sp {
+      width: 100%;
+    }
+  }
+}
+
+.main-food__content {
+  max-width: 500px;
+  background-color: #F8F8F8;
+  padding: 5%;
+  opacity: 0.9;
+  height: 141px;
+  margin: 0 0 0 auto;
+  font-size: 0.8em;
+
+  @include sp {
+    order: 1;
+    height: 400px;
+    width: 50%;
+    position: static;
+    margin: 40px 0 0 auto;
+  }
+
+
+  input {
+    background-color: #fff;
+    opacity: 0.9;
+    border: 1px solid #707070;
+    padding: 3px;
+    display: block;
+    margin: 0 0 0 auto;
+    cursor: pointer;
+
+    @include sp {
+      margin: 60px 0 0 auto;
+    }
+  }
+}
+
+.main-closing {
+  padding: 50px;
+  background-color: #fff;
+  height: 900px;
+
+  @include sp {
+    padding: 0;
+    margin-top: 45px;
+  }
+
+  .sp_br {
+    display: none;
+
+    @include sp {
+      display: block;
+    }
+  }
+
+  >p {
+    text-align: center;
+    line-height: 3em;
+
+    @include sp {
+      line-height: 2em;
+      padding-top: 60px;
+    }
+  }
+}
+
+.main-closing_bottom {
+  display: flex;
+  justify-content: center;
+
+  @include sp {
+    display: none;
+  }
+}
+
+.main-closing_box {
+  background-color: #F4F4F4;
+  padding: 30px;
+  margin: 200px 20px;
+  height: 230px;
+  width: 40%;
+  max-width: 500px;
+
+  h1 {
+    position: relative;
+    left: -10%;
+  }
+
+  p {
+    padding: 20px 0;
+    font-size: 0.8em;
+  }
+
+  input {
+    background: transparent;
+    opacity: 0.9;
+    border: 1px solid #707070;
+    padding: 8px 30px;
+    display: block;
+    margin: 0 0 0 auto;
+    position: relative;
+    left: 10%;
+    cursor: pointer;
+  }
+}
+
+.main-closing_bottom-sp {
+  display: none;
+
+  @include sp {
+    display: block;
+    background-color: #F4F4F4;
+    padding: 30px 40px;
+    text-align: center;
+    width: 230px;
+    margin: 100px 0 0 auto;
+  }
+
+  h1 {
+    text-shadow: #0000004D 3px 3px 2px;
+  }
+
+  h2 {
+    font-size: 1em;
+    text-shadow: #0000004D 3px 3px 2px;
+  }
+
+  input {
+    padding: 5px;
+    margin: 10px;
+  }
+}
+
+
+// footer
+footer {
+  height: 200px;
+  color: white;
+}
+
+.footer_content {
+  background-color: #000000F2;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+
+  @include sp {
+    height: 400px;
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    font-weight: normal;
+    border-bottom: 1px solid white;
+    display: inline-block;
+  }
+}
+
+.footer-pic {
+  img {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+.footer-message {
+  margin-right: 20%;
+  margin-left: 10%;
+  max-width: 500px;
+
+  @include sp {
+    display: none;
+  }
+
+  p {
+    font-size: 0.7em;
+  }
+}
+
+.footer-contact {
+  width: 40%;
+  max-width: 500px;
+
+  @include sp {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+  }
+
+  h1 {
+    @include sp {
+      display: none;
+    }
+  }
+
+  p {
+    font-size: 0.7em;
+
+    span {
+      @include sp {
+        display: none;
+      }
+    }
+
+    @include sp {
+      order: 2;
+      text-align: center;
+      width: initial;
+    }
+  }
+
+  ul {
+    @include sp {
+      order: 1;
+      text-align: center;
+    }
+  }
+
+  li {
+    list-style-type: none;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 2em;
+
+    @include sp {
+      padding: 30px;
+      font-size: 3em;
+    }
+  }
+}
+
+.copyright {
+  clear: left;
+  padding: 15px 30px;
+  background-color: #000000CC;
+  font-size: 0.5em;
+
+  @include sp {
+    display: none;
+  }
+}
+
+.copyright-sp {
+  display: none;
+
+  @include sp {
+    display: block;
+    padding: 5px 30px;
+    background-color: #000000CC;
+    font-size: 0.5em;
+    text-align: center;
+  }
+}
