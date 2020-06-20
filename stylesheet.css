@@ -5,6 +5,10 @@
   font-family: 'Vollkorn', serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .header-menu {
   width: 100%;
   height: 80px;
