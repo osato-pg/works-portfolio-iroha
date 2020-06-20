@@ -23,6 +23,7 @@ const close = document.getElementById("hide");
 const sp = document.getElementById("sp");
 const header = document.getElementById("h_color");
 const headerPic = document.getElementById('headerPic');
+const spNav =document.querySelectorAll(".sp-list > li");
 
 // first picture
 headerPic.style.backgroundImage = `url(${firstPicture})`;
@@ -40,6 +41,14 @@ close.addEventListener('click', () => {
   check.classList.remove('unvisible');
 });
 
+spNav.forEach( spnav => {
+ spnav.addEventListener('click', ()=> {
+  sp.classList.remove('toggle');
+  header.classList.remove('background_toggle');
+  check.classList.remove('unvisible');
+ });
+});
+
 // slideshow
 function slideShow () {
   if (currentIndex >= PICTURES.length){
@@ -50,4 +59,7 @@ function slideShow () {
 }
 
 setInterval(slideShow,intervalNum);
+
+
+
 
